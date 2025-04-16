@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Comic Tracker",
+  "version": "1.0",
+  "description": "Tracks last read comic chapter and redirects to it automatically.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "https://readcomicsonline.ru/comic/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://readcomicsonline.ru/comic/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_title": "Comic Tracker"
+  },
+  "applications": {
+    "gecko": {
+      "id": "comic-tracker@example.com"
+    }
+  }
+}
